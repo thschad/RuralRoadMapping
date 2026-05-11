@@ -11,6 +11,33 @@
 
 Therefore, the classified GeoPackages represent model inference, not raw OSM tagging.
 
+### Exact Attribute Provenance in Classified GeoPackages
+
+Verified from the exported layers:
+- `classification_outputs/laubach_feldwege_klassifiziert_buffer.gpkg` (layer `feldwege_buffer`)
+- `classification_outputs/laubach_feldwege_klassifiziert_linien.gpkg` (layer `feldwege`)
+
+| Attribute | Provenance |
+|---|---|
+| osm_id | OSM direct |
+| highway | OSM direct |
+| surface | OSM direct |
+| tracktype | OSM direct |
+| name | OSM direct |
+| osm_surface | OSM direct (normalized helper field) |
+| osm_tracktype | OSM direct (normalized helper field) |
+| class_id | Model output |
+| class_label | Model output |
+| confidence | Model output (maximum class probability) |
+| prob_versiegelt | Model output probability |
+| prob_mineralisch | Model output probability |
+| prob_begrünt_erdig | Model output probability |
+| geometry | OSM-derived geometry |
+
+Important:
+- Raw Sentinel features are not stored in the final classified GeoPackages.
+- Sentinel-derived feature columns (`NDVI_*`, `NDWI_*`, `NDBI_*`, `VV_*`, `VH_*`) are in `openeo_outputs/laubach_feature_table.csv`.
+
 ## Model Artifacts
 
 Generated model files:
