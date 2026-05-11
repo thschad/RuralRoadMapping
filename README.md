@@ -1,5 +1,7 @@
 # RuralRoad Mapping - Laubach (35321)
 
+Characterisation of rural road conditions from remote sensing.
+
 This repository contains a full workflow for rural road surface classification using:
 - OpenStreetMap road geometry
 - Sentinel-2 (optical) features via openEO/CDSE
