@@ -1,0 +1,39 @@
+site_name: RuralRoadMapping Documentation
+site_description: Rural road surface classification workflow for Laubach (35321)
+site_url: https://github.com/thschad/RuralRoadMapping
+repo_url: https://github.com/thschad/RuralRoadMapping
+repo_name: RuralRoadMapping on GitHub
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: light blue
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Data: data.md
+  - Methods: methods.md
+  - Results and Outputs: results.md
+  - Reproducibility: reproducibility.md
+
+extra_css:
+  - stylesheets/extra.css
