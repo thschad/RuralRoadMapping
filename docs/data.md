@@ -1,5 +1,20 @@
 # Data
 
+## Data Provenance at a Glance
+
+| Information | Source | Where it appears |
+|---|---|---|
+| Road geometry (lines, buffers) | OSM direct | `laubach_feldwege_linien.gpkg`, `laubach_feldwege_buffer5m.gpkg` |
+| Road metadata (`osm_id`, `highway`, `surface`, `tracktype`) | OSM direct | OSM-derived GeoPackages and feature table |
+| EO features (`NDVI_*`, `NDWI_*`, `NDBI_*`, `VV_*`, `VH_*`) | Sentinel-derived (openEO) | `openeo_outputs/laubach_feature_table.csv` |
+| Weak labels (`label_weak`) | Derived from OSM tags (not Sentinel) | `openeo_outputs/laubach_feature_table.csv` |
+| Predicted class (`class_label`) and confidence | ML model output | `classification_outputs/*.gpkg`, `laubach_prediction_table.csv` |
+
+Interpretation rule:
+- OSM direct = input metadata and geometry.
+- Sentinel-derived = numeric EO features only.
+- Classification result = model prediction from EO features (trained with weak OSM labels).
+
 ## Data Inventory
 
 ### OSM Inputs
@@ -71,6 +86,18 @@ Metadata and weak labels:
 - osm_surface
 - osm_tracktype
 - label_weak
+
+Provenance note:
+- `osm_id`, `osm_surface`, `osm_tracktype` come directly from OSM.
+- `label_weak` is mapped from OSM tags and is not a Sentinel product.
+
+### Model Output Columns
+
+Produced after model inference (not present in raw feature extraction output):
+- class_label
+- confidence
+- class_id
+- probability columns (for example `prob_versiegelt`)
 
 ## Weak-Label Mapping
 

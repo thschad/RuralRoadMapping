@@ -4,6 +4,13 @@
 
 The method integrates vector extraction, remote sensing feature generation, supervised learning with weak labels, and GIS delivery.
 
+## Provenance Logic in the Method
+
+The processing chain separates information sources strictly:
+- OSM contributes geometry and metadata (plus weak labels via mapping).
+- Sentinel contributes EO feature variables only.
+- The classifier combines EO features with training labels to produce final predictions.
+
 ## Step 1 - OSM Extraction and Geometry Processing
 
 Implemented in 01_osm_extraction_laubach.py.
@@ -75,6 +82,14 @@ Training setup:
 - weak labels from OSM surface mapping
 - stratified 5-fold CV for macro F1 comparison
 - class-balanced random forest configuration
+
+Provenance clarification:
+- Input predictors: Sentinel-derived features (`NDVI_*`, `NDWI_*`, `NDBI_*`, `VV_*`, `VH_*`).
+- Training target: OSM-derived `label_weak`.
+- Output target: model-predicted `class_label` and associated confidence/probabilities.
+
+This means the final map is not a direct OSM copy and not a direct Sentinel rule-based class.
+It is an ML inference result trained on OSM weak supervision.
 
 Evaluation artifacts:
 - confusion matrix plot

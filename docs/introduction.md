@@ -15,6 +15,25 @@ The modeling concept combines two complementary information sources:
 - OSM provides where roads are located.
 - Sentinel data provides how the road surface behaves spectrally and radiometrically.
 
+## Information Provenance (Important)
+
+This project uses three different information types:
+
+1. OSM direct information
+- road geometry and topology
+- original OSM tags such as `highway`, `surface`, `tracktype`, `osm_id`
+
+2. Sentinel-derived information
+- raster-based EO features extracted from Sentinel-2 and Sentinel-1
+- spectral and radar indicators (NDVI/NDWI/NDBI, VV/VH summaries)
+
+3. Model-predicted information
+- final road class (`class_label`) predicted by ML
+- confidence and class probabilities in output tables
+
+Important: `label_weak` is not a Sentinel classification output.
+It is a weak training label derived from OSM tags and used only as supervision signal.
+
 ## Pipeline Architecture
 
 The implementation is organized into three scripts:
