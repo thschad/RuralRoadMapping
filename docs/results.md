@@ -72,3 +72,12 @@ This enables direct viewing and handover in GIS teams without rebuilding the pip
 
 The pipeline is technically stable and reproducible.
 Model performance is currently limited by weak-label quality and should be improved with validated training data.
+
+## Key Bar Chart: Rural Road Length by Community and Road Type
+
+The key stacked bar chart for the municipal comparison is shown below.
+
+![Rural road length by community and OSM road type](images/laubach_35321_length_by_community_highway_stacked.png)
+
+Data source for this chart:
+- `analysis_outputs/laubach_35321_admin/laubach_35321_length_by_community_highway.csv`
